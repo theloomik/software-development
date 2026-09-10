@@ -1,8 +1,6 @@
 using System;
-
 namespace AdventureGame
 {
-
     public interface IWeapon
     {
         void UseWeapon();
@@ -151,39 +149,20 @@ namespace AdventureGame
     {
         static void Main(string[] args)
         {
-            // Створюємо персонажа
-            Character warrior = new Warrior("Артур");
-
+            // Створення персонажа
+            Character warrior = new Warrior("Міша");
             warrior.ShowInfo();
-
-            // Воїн бере меч
+            // Взятя меча
             warrior.SetWeapon(new Sword());
             warrior.Attack();
-
-            // Під час гри воїн змінює зброю
+            // Зміна зброї
             warrior.SetWeapon(new Bow());
             warrior.Attack();
-
-            // Ще одна зміна зброї
+            // зміна зброї 2
             warrior.SetWeapon(new Dagger());
             warrior.Attack();
 
-
             Console.WriteLine();
-
-            // Створюємо мага
-            Character mage = new Mage("Мерлін");
-
-            mage.ShowInfo();
-
-            mage.SetWeapon(new Staff());
-            mage.Attack();
-
-            // Маг також може змінити зброю
-            mage.SetWeapon(new Sword());
-            mage.Attack();
-
-
             Console.ReadKey();
         }
     }
