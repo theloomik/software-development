@@ -58,6 +58,20 @@ class Cheese : PizzaDecorator
     }
 }
 
+class Krevetka : PizzaDecorator
+{
+    public Krevetka(IPizza pizza) : base(pizza) { }
+
+    public override string GetDescription()
+    {
+        return base.GetDescription() + ", креветка";
+    }
+
+    public override decimal GetPrice()
+    {
+        return base.GetPrice() + 60;
+    }
+
 // Декоратор: ковбаса
 class Sausage : PizzaDecorator
 {
@@ -121,6 +135,7 @@ class Program
         Console.WriteLine("2 -- Ковбаса (+35 грн)");
         Console.WriteLine("3 -- Овочі (+20 грн)");
         Console.WriteLine("4 -- Додатковий соус (+10 грн)");
+        Console.WriteLine("5 -- Креветка(+60 грн)");
         Console.WriteLine("0 -- Завершити");
 
         while (true)
@@ -150,6 +165,11 @@ class Program
                     Console.WriteLine("Додано додатковий соус.");
                     break;
 
+                case "5":
+                    pizza = new Krevetka(pizza);
+                    Console.WriteLine("Додано креветку.");
+                    break;
+
                 case "0":
                     Console.WriteLine("\n=== ВАШЕ ЗАМОВЛЕННЯ ===");
                     Console.WriteLine("Піца: " + pizza.GetDescription());
@@ -164,4 +184,5 @@ class Program
             }
         }
     }
+}
 }
