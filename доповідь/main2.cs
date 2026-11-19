@@ -3,8 +3,11 @@ using System;
 
 class Program
 {
+
+
     static int Factorial(int n)
     {
+        
         if (n <= 1)
         {
             return 1;
@@ -12,6 +15,8 @@ class Program
 
         return n * Factorial(n - 1);
     }
+
+
 
     static void Main()
     {

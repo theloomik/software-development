@@ -1,0 +1,17 @@
+@model Weather.Web.Models.WeatherViewModel
+@{
+    ViewData["Title"] = "Пошук погоди";
+}
+
+<h2>Пошук погоди</h2>
+
+<form asp-controller="Weather" asp-action="Result" method="post">
+    <label for="city">Введіть назву міста:</label><br />
+    <input type="text" id="city" name="city" placeholder="Наприклад: Львів" required />
+    <button type="submit">Показати погоду</button>
+</form>
+
+@if (!string.IsNullOrWhiteSpace(Model.Error))
+{
+    <p style="color:red">@Model.Error</p>
+}

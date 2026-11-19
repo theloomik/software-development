@@ -1,0 +1,15 @@
+@model Weather.Web.Models.WeatherViewModel
+@{
+    ViewData["Title"] = "Результат";
+}
+
+<h2>Погода у місті @Model.City</h2>
+<p>Опис: @Model.Description</p>
+<p>Температура: @Model.Temperature °C</p>
+
+@if (!string.IsNullOrWhiteSpace(Model.Icon))
+{
+    <img src="https://openweathermap.org/img/wn/@(Model.Icon)@@2x.png" alt="Піктограма погоди" />
+}
+
+<p><a asp-controller="Weather" asp-action="Index">Повернутися назад</a></p>
